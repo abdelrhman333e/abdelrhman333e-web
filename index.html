@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ربط ملف التنسيقات الخارجي -->
+    <link rel="stylesheet" href="styles.css">
+    <title>موقع عبدالرحمن</title>
+</head>
+<body>
+    <!-- رأس الصفحة: يحتوي على الشعار وقائمة التنقل -->
+    <header>
+        <!-- شعار الموقع -->
+        <img src="assets/assets/svg/logo.svg" alt="شعار الموقع">
+        <!-- قائمة التنقل الرئيسية -->
+        <nav class="navigation">
+            <ul>
+                <li><a href="#aboutMe">عنّي</a></li> <!-- رابط لقسم "عنّي" -->
+                <li><a href="#MyWorks">أعمالي</a></li> <!-- رابط لقسم "أعمالي" -->
+                <li><a href="#ContactMe">تواصل</a></li> <!-- رابط لقسم "التواصل" -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- خط فاصل بين الرأس وباقي الصفحة -->
+    <hr />
+
+    <!-- قسم البطل (Hero Section): أول قسم يظهر في الصفحة -->
+    <section class="hero">
+        <!-- سهم للأسفل لتوجيه المستخدم للأقسام التالية -->
+        <img class="arrow" src="assets/assets/svg/arrow.svg" alt="سهم للأسفل"/>
+        <!-- قسم فرعي يمكن استخدامه لإضافة وصف أو صورة شخصية -->
+        <div class="herosub">
+            <!-- اسم صاحب الموقع -->
+            <h1 class="name">أنا عبد الرحمن</h1>
+            <!-- المسمى الوظيفي لصاحب الموقع -->
+            <h1 class="title">مهندس برمجيات</h1>
+            <!-- أزرار تفاعلية (مثلاً: تحميل السيرة الذاتية أو التواصل) -->
+            <div class="heroBtns">
+                <a class="HireMe" href="#ContactMe">توظيف</a>
+                <a class="cv" href="assets/assets/CV.pdf" download>
+                    تحميل السيرة الذاتية
+                    <img src="assets/assets/svg/download.svg" alt="زر تحميل"/>
+                </a>
+            </div>
+        </div>
+        <!-- صورة البطل -->
+        <img src="assets/assets/svg/Hero.svg" alt="صورة البطل" class="heroimg"/>
+    </section>
+
+    <!-- قسم عنّي -->
+    <section class="aboutMe" id="aboutMe">
+        <img 
+            src="assets/assets/svg/AboutMe.svg" 
+            alt="صورة عنّي"
+            class="aboutMeimg"
+        />
+        <div class="textContainer">
+            <div class="textTitle">
+                <h1 class="aboutName">عنّي</h1>
+                <img src="assets/assets/svg/lightbulb.svg" alt="مصباح" class="light"/> 
+            </div>
+            <p class="aboutMePar">
+                مرحباً، أنا عبد الرحمن، مهندس برمجيات شغوف بابتكار حلول مبتكرة. متخصص في تطوير الويب وتطبيقات الجوال وتصميم البرمجيات. هدفي هو بناء تطبيقات سهلة الاستخدام تحل مشاكل واقعية وتُحسّن تجربة المستخدم. بفضل خبرتي المتينة في لغات البرمجة وأطر العمل، ألتزم بالتعلم والتطوير المستمر في ظل التطور التكنولوجي المتواصل.
+            </p> 
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- قسم الأعمال -->
+    <section class="Works" id="MyWorks">
+        <div class="WorksContainer">
+            <div class="Projects">
+                <h1 class="aboutName">أحدث أعمالي</h1>
+                <h1 class="aboutTitle">المشاريع</h1>
+            </div>
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/channel/UCAd7hk5JmyeMG0W-9Co8MKg" target="_blank">
+                        <img src="assets/assets/imgs/landingPage.png" alt="يوتيوب"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://najmi-store-k6ocg.sevalla.page" target="_blank">
+                        <img src="assets/assets/imgs/webApp.png" alt="تطبيق ويب"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="" target="_blank">
+                        <img src="assets/assets/imgs/app.png" alt="تطبيق جوال"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- قسم التواصل -->
+    <section class="contactContainer" id="ContactMe">
+        <div class="contactTitle">
+            <h1 class="aboutName">تواصل معي</h1>
+            <h1 class="aboutTitle">معلومات التواصل</h1>
+        </div>
+        <div class="contact">
+            <div class="emailAndPhone">
+                <img src="assets/assets/svg/email.svg" alt="أيقونة البريد الإلكتروني"/>
+                <a href="mailto:abdo267895@gmail.com"><h3>abdo267895@gmail.com</h3></a>
+            </div>
+            <div class="emailAndPhone">
+                <img src="assets/assets/svg/phone.svg" alt="أيقونة الهاتف"/>
+                <a href="tel:+01022376759"><h3>01022376759+</h3></a>
+            </div>
+        </div>   
+        <!-- روابط التواصل الاجتماعي -->
+        <div class="social-media">
+            <a href="https://vk.com/id830349225" target="_blank">
+                <img src="assets/assets/svg/linkedin.svg" alt="حساب لينكدإن"/>
+            </a>
+            <a href="https://github.com/abdelrhman333e" target="_blank">
+                <img src="assets/assets/svg/github.svg" alt="حساب جيتهاب"/>
+            </a>
+            <a href="https://x.com/bdalrhmn98028" target="_blank">
+                <img src="assets/assets/svg/twitter.svg" alt="حساب تويتر"/>
+            </a>
+            <a href="https://www.youtube.com/channel/UCAd7hk5JmyeMG0W-9Co8MKg" target="_blank">
+                <img src="assets/assets/svg/youtube.svg" alt="قناة يوتيوب"/>
+            </a>
+        </div>
+    </section>
+
+    <hr />
+
+    <!-- تذييل الصفحة -->
+    <footer>
+        <p>
+            &copy; 2025 عبدالرحمن. جميع الحقوق محفوظة.
+        </p>
+    </footer>
+</body>
+</html>

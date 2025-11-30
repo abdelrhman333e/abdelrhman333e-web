@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+* { 
+    margin: 0; /* إزالة الهوامش الافتراضية */
+    padding: 0; /* إزالة الحشوات الافتراضية */
+    box-sizing: border-box; /* احتساب الحشوة والحدود ضمن الحجم الكلي */
+    scroll-behavior: smooth; /* سلاسة في التمرير */
+    font-family: "poppins", serif; /* تعيين الخط الافتراضي */
+}
+body  {
+    background-color: #222831; /* لون خلفية داكن */
+}
+header {
+    display: flex;
+    /* توزيع العناصر داخل الهيدر */
+    justify-content: space-between;
+    /* محاذاة العناصر عموديًا في المنتصف */
+    align-items: center;
+    /* هامش علوي وسفلي للرأس */
+    margin: 2rem auto;
+    /* حشوة يمين ويسار للرأس */
+    padding: 0 0.5rem;
+    /* أقصى عرض للرأس */
+    max-width: 1200px;
+}
+
+/* تنسيق قائمة التنقل الرئيسية */
+.navigation ul {
+    display: flex; /* عرض العناصر أفقياً */
+    list-style-type: none; /* إزالة النقاط */
+    gap: 2rem; /* مسافة بين العناصر */
+}
+
+/* تنسيق الروابط داخل قائمة التنقل */
+.navigation a {
+    text-decoration: none; /* إزالة الخط السفلي */
+    color: #eeeeee; /* لون النص */
+}
+
+/* تغيير لون الرابط عند المرور */
+.navigation a:hover {
+    color: #00adb5;
+}
+
+/* جعل الخط الفاصل شفاف */
+hr {
+    opacity: 10%;
+}
+
+/* تنسيق قسم البطل */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5rem auto;
+    max-width: 1200px;
+}
+
+/* تحريك سهم النزول */
+.arrow {
+    transform: translateX(-5.5rem) translatexY(1.5rem);
+}
+.herosub {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+/* تنسيق عنوان القسم الفرعي */
+.name { 
+    font-size:  3rem;
+    color: #eeeeee;
+}
+.title{
+    font-size: 4rem;
+    color:#00adb5;
+}
+.heroBtns {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem ;
+}
+.HireMe {/* تنسيق زر "hireme" */
+    background-color: #00adb5;
+    color: #eeeeee;
+    border-radius: 24px;
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+.cv {
+    background-color: rgba(57, 62, 70, 0.5);
+    color:#eeeeee;
+    border-radius: 24px;
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    grid: 0.5rem;
+    backdrop-filter: blur(4px);
+}
+.aboutMe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5rem auto;
+    max-width: 1200px;
+    gap: 10rem;
+}
+.textContainer {
+    display: flex;
+    flex-direction: column;
+}
+.textTitle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 2rem;
+}
+aboutName{ 
+    color: #eeeeee;
+}
+.aboutTitle {
+    color: #00adb5;
+    
+}
+.aboutMePar{
+      text-align: justify;
+      color: rgba(238, 238, 238, 0.75);
+}
+.Works{
+    background-image: url("assets/assets/svg/background.svg");
+    padding: 10rem 10rem; 
+    margin: 5rem 0rem;
+}
+.worksContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    margin: 5rem auto;
+    max-width: 1200px;
+    
+}
+.projectTitle {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 5px;
+    font-size: 2rem;
+}
+.Works ul{
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: space-between;
+}
+.Works li {
+    border-radius: 16px;
+    background-color: rgba(57, 62, 70, 0.5);
+    backdrop-filter: blur(4px);
+    padding: 1rem 4rem;
+}
+.Works li img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain ;
+    transition: transform 0.2s;
+}
+
+.Works li:hover img {
+    transform: scale(1.5);
+}
+.contactContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+.contactTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+.contact {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+      gap: 20rem;
+      margin-right: 5rem;
+
+}
+.contact h3, .contact a {
+    color: #eeeeee;
+    text-decoration: none;
+}
+.emailAndPhone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.social-media { 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+gap: 3rem; 
+} 
+.social-media a { 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+border-radius: 50px; 
+background-color: rgba(57, 62, 70, 0.5); 
+backdrop-filter: blur(4px); 
+padding: 1rem; 
+} 
+.social-media img {
+    width: 24px;
+    height: 24px;
+}
+footer {
+    color: #eeeeee;
+    padding: 2rem;
+    text-align: center;
+}   
+/* القيم الافتراضية (تناسب الكمبيوتر والشاشات الكبيرة) */
+header,
+.aboutMe,
+.Works,
+.contactContainer {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.hero,
+.aboutMe,
+.Works ul,
+.contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+}
+.Works li img,
+.aboutMeimg,
+.heroimg {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    border-radius: 16px;
+}
+
+/* ميديا كويري للأجهزة المتوسطة والصغيرة */
+@media (max-width: 1023px) {
+    header,
+    .aboutMe,
+    .Works,
+    .contactContainer {
+        max-width: 100vw;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .hero,
+    .aboutMe,
+    .Works ul,
+    .contact {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .Works li,
+    .Works li img {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        padding: 1rem;
+    }
+    .aboutMeimg,
+    .heroimg {
+        width: 90vw;
+        max-width: 300px;
+        height: auto;
+    }
+    .contact {
+        margin-right: 0;
+        gap: 1rem;
+    }
+    .emailAndPhone {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .social-media {
+        gap: 1rem;
+    }
+    .social-media img {
+        width: 32px;
+        height: 32px;
+    }
+    .name,
+    .title,
+    .aboutName,
+    .aboutTitle {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .textContainer {
+        align-items: center;
+        margin: 0 0.5rem;
+        gap: 1rem;
+    }
+    footer {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* ميديا كويري للموبايل الصغير جداً */
+@media (max-width: 600px) {
+    header,
+    .aboutMe,
+    .Works,
+    .contactContainer {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .heroimg,
+    .aboutMeimg {
+        max-width: 95vw;
+    }
+    .Works li img {
+        max-width: 90vw;
+    }
+    .hero,
+    .aboutMe,
+    .Works ul,
+    .contact {
+        gap: 0.5rem;
+    }
+}
