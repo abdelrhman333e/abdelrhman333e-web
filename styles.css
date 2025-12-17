@@ -58,7 +58,11 @@ hr {
 
 /* تحريك سهم النزول */
 .arrow {
-    transform: translateX(-5.5rem) translatexY(1.5rem);
+    width: 50px;
+    /* جرب 50 بكسل أو الحجم اللي يريحك */
+    height: auto;
+    transform: translateX(-5.5rem) translateY(1.5rem);
+    /* التنسيق بتاعك زي ما هو */
 }
 .herosub {
     display: flex;
