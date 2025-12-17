@@ -34,7 +34,7 @@ header {
 /* تنسيق الروابط داخل قائمة التنقل */
 .navigation a {
     text-decoration: none; /* إزالة الخط السفلي */
-    color: #eeeeee; /* لون النص */
+    color: #79381f; /* لون النص */
 }
 
 /* تغيير لون الرابط عند المرور */
@@ -117,7 +117,7 @@ hr {
     gap: 5px;
     font-size: 2rem;
 }
-aboutName{ 
+.aboutName{ 
     color: #eeeeee;
 }
 .aboutTitle {
@@ -126,7 +126,7 @@ aboutName{
 }
 .aboutMePar{
       text-align: justify;
-      color: rgba(238, 238, 238, 0.75);
+      color: rgba(65, 226, 191, 0.75);
 }
 .Works{
     background-image: url("assets/assets/svg/background.svg");
