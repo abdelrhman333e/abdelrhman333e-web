@@ -162,11 +162,20 @@ hr {
     padding: 1rem 4rem;
 }
 .Works li img {
-    width: 200px;
-    height: 200px;
-    object-fit: contain ;
+    width: 100%;
+    /* عشان ياخد عرض الـ li */
+    max-width: 300px;
+    /* أو الحجم اللي يريحك */
+    height: auto;
+    /* يحافظ على النسبة عشان الصورة متتمطش */
+    aspect-ratio: 16 / 9;
+    /* بيخلي كل الصور بنفس التناسب */
+    object-fit: cover;
+    /* بيقص الزيادات عشان المربع يبقى كامل */
     transition: transform 0.2s;
+    border-radius: 16px;
 }
+
 
 .Works li:hover img {
     transform: scale(1.5);
