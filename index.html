@@ -2,97 +2,150 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="assets/assets/svg/deebo.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="موقع المهندس عبدالرحمن، متخصص في تطوير تطبيقات الويب والجوال وحلول البرمجيات المبتكرة. استكشف أحدث مشاريعي وخبراتي التقنية في بناء تجارب مستخدم متميزة.">
-   <meta name="author" content="عبدالرحمن">
+    <meta name="author" content="عبدالرحمن">
     <meta name="keywords" content="عبدالرحمن, مهندس برمجيات, تطوير ويب, تطبيقات جوال, برمجة">
-    <!-- ربط ملف التنسيقات الخارجي -->
     <link rel="stylesheet" href="styles.css">
     <title>المبرمج عبدالرحمن</title>
 </head>
 <body>
-    <!-- رأس الصفحة: يحتوي على الشعار وقائمة التنقل -->
-    <header>
-        <!-- شعار الموقع -->
-        <img src="assets/assets/svg/logo.svg" alt="شعار الموقع">
-        <!-- قائمة التنقل الرئيسية -->
-        <nav class="navigation">
-            <ul>
-                <li><a href="#aboutMe">عنّي</a></li> <!-- رابط لقسم "عنّي" -->
-                <li><a href="#MyWorks">أعمالي</a></li> <!-- رابط لقسم "أعمالي" -->
-                <li><a href="#ContactMe">تواصل</a></li> <!-- رابط لقسم "التواصل" -->
-            </ul>
-        </nav>
+    <header class="sticky-header">
+        <div class="header-inner">
+            <a href="#">
+                <img src="assets/assets/svg/deebo.svg" alt="شعار الموقع">
+            </a>
+            
+            <div class="header-actions">
+            <button class="lang-toggle" id="themeToggle" type="button" aria-label="Switch to light mode">☀️</button>
+            <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch to English">EN</button>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#aboutMe"><span class="lang-ar">عنّي</span><span class="lang-en">About</span></a></li>
+                    <li><a href="#MyWorks"><span class="lang-ar">أعمالي</span><span class="lang-en">Work</span></a></li>
+                    <li><a href="#ContactMe"><span class="lang-ar">تواصل</span><span class="lang-en">Contact</span></a></li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+        <div class="header-progress"></div>
     </header>
 
-    <!-- خط فاصل بين الرأس وباقي الصفحة -->
-    <hr />
+    <hr>
 
-    <!-- قسم البطل (Hero Section): أول قسم يظهر في الصفحة -->
     <section class="hero">
-        <!-- سهم للأسفل لتوجيه المستخدم للأقسام التالية -->
-        <img class="arrow" src="assets/assets/svg/arrow.svg" alt="سهم للأسفل"/>
-        <!-- قسم فرعي يمكن استخدامه لإضافة وصف أو صورة شخصية -->
+        <img class="arrow" src="assets/assets/svg/arrow.svg" alt="سهم للأسفل" />
         <div class="herosub">
-            <!-- اسم صاحب الموقع -->
-            <h1 class="name">أنا عبد الرحمن</h1>
-            <!-- المسمى الوظيفي لصاحب الموقع -->
-            <h2 class="title">مهندس برمجيات</h2>
-            <!-- أزرار تفاعلية (مثلاً: تحميل السيرة الذاتية أو التواصل) -->
+            <div class="lang-ar">
+                <h1 class="name">أنا عبد الرحمن</h1>
+                <h2 class="title">مهندس برمجيات</h2>
+                <p class="hero-subtitle">أبني واجهات وتطبيقات حديثة تعطي قيمة حقيقية للمستخدمين وتدعم أهداف العمل.</p>
+            </div>
+            <div class="lang-en">
+                <h1 class="name">I'm Abdelrahman</h1>
+                <h2 class="title">Software Engineer</h2>
+                <p class="hero-subtitle">I build modern interfaces and applications that create real value for users and support business goals.</p>
+            </div>
             <div class="heroBtns">
-                <a class="HireMe" href="#ContactMe">توظيف</a>
+                <a class="HireMe" href="#ContactMe">
+                    <span class="lang-ar">توظيف</span>
+                    <span class="lang-en">Hire me</span>
+                </a>
                 <a class="cv" href="assets/assets/CV.pdf" download>
-                    تحميل السيرة الذاتية
-                    <img src="assets/assets/svg/download.svg" alt="زر تحميل"/>
+                    <span class="lang-ar">تحميل السيرة الذاتية</span>
+                    <span class="lang-en">Download CV</span>
+                    <img src="assets/assets/svg/download.svg" alt="زر تحميل" />
                 </a>
             </div>
         </div>
-        <!-- صورة البطل -->
-        <img src="assets/assets/svg/Hero.svg" alt="صورة البطل" class="heroimg"/>
+        <img src="assets/assets/svg/Hero.svg" alt="صورة البطل" class="heroimg" />
     </section>
 
-    <!-- قسم عنّي -->
     <section class="aboutMe" id="aboutMe">
-        <img 
-            src="assets/assets/svg/AboutMe.svg" 
-            alt="صورة عنّي"
-            class="aboutMeimg"
-        />
+        <img src="assets/assets/svg/AboutMe.svg" alt="صورة عنّي" class="aboutMeimg" />
         <div class="textContainer">
             <div class="textTitle">
-                <h1 class="aboutName">عنّي</h1>
-                <img src="assets/assets/svg/lightbulb.svg" alt="مصباح" class="light"/> 
+                <h1 class="aboutName">
+                    <span class="lang-ar">عنّي</span>
+                    <span class="lang-en">About me</span>
+                </h1>
+                <img src="assets/assets/svg/lightbulb.svg" alt="مصباح" class="light" />
             </div>
-            <p class="aboutMePar"  >
-                مرحباً، أنا عبد الرحمن، مهندس برمجيات شغوف بابتكار حلول مبتكرة. متخصص في تطوير الويب وتطبيقات الجوال وتصميم البرمجيات. هدفي هو بناء تطبيقات سهلة الاستخدام تحل مشاكل واقعية وتُحسّن تجربة المستخدم. بفضل خبرتي المتينة في لغات البرمجة وأطر العمل، ألتزم بالتعلم والتطوير المستمر في ظل التطور التكنولوجي المتواصل.
-            </p> 
+            <p class="aboutMePar lang-ar">
+                أنا عبدالرحمن، مهندس برمجيات أُحب تحويل الأفكار إلى حلول عملية ومشاريع سهلة الاستخدام. أركز على تطوير الويب وتطبيقات الجوال، وأهتم بالتفاصيل التي تجعل المنتج قويًا وسهل التفاعل معه. لدي خبرة في تصميم الواجهات، البرمجة، والتعامل مع المشاريع من الفكرة إلى التنفيذ.
+            </p>
+            <p class="aboutMePar lang-en">
+                I'm Abdelrahman, a software engineer who loves turning ideas into practical solutions and user-friendly products. I focus on web and mobile development and pay close attention to the details that make a product strong, polished, and easy to use. I also work across design and implementation from concept to launch.
+            </p>
+            <div class="skills-list" aria-label="Skills">
+                <span class="skill-badge">🎨 UI/UX Design</span>
+                <span class="skill-badge">🖼️ Photoshop</span>
+                <span class="skill-badge">🎬 Editing & Montages</span>
+                <span class="skill-badge">🌐 Website Design</span>
+            </div>
         </div>
     </section>
 
     <hr />
 
-    <!-- قسم الأعمال -->
     <section class="Works" id="MyWorks">
         <div class="WorksContainer">
             <div class="Projects">
-                <h1 class="aboutName">أحدث أعمالي</h1>
-                <h1 class="aboutTitle">المشاريع</h1>
+                <h1 class="aboutName">
+                    <span class="lang-ar">أحدث أعمالي</span>
+                    <span class="lang-en">Latest work</span>
+                </h1>
+                <h1 class="aboutTitle">
+                    <span class="lang-ar">المشاريع</span>
+                    <span class="lang-en">Projects</span>
+                </h1>
             </div>
             <ul>
-                <li>
+                <li class="project-card">
                     <a href="https://www.youtube.com/channel/UCAd7hk5JmyeMG0W-9Co8MKg" target="_blank">
-                        <img src="assets/assets/imgs/landingPage.webp" alt="يوتيوب" width="400" height="200"/>
+                        <img src="assets/assets/imgs/landingPage.webp" alt="Landing page for a YouTube channel" />
                     </a>
+                    <div class="project-info">
+                        <h3 class="lang-ar">صفحة هبوط لقناة يوتيوب</h3>
+                        <h3 class="lang-en">Landing page for a YouTube channel</h3>
+                        <p class="lang-ar">تصميم وبناء صفحة احترافية تعكس هوية القناة وتوضح القيمة بشكل واضح.</p>
+                        <p class="lang-en">A polished landing page that showcases the channel identity and communicates its value clearly.</p>
+                        <div class="project-tags">
+                            <span>HTML/CSS</span>
+                            <span>UI Design</span>
+                        </div>
+                    </div>
                 </li>
-                <li>
-                    <a href="https://najmi-store.netlify.app/" target="_blank">
-                        <img src="assets/assets/imgs/webApp.webp" alt="تطبيق ويب" width="400" height="200"/>
+                <li class="project-card">
+                    <a href="https://najmi-store.vercel.app/" target="_blank">
+                        <img src="assets/assets/imgs/webApp.webp" alt="تطبيق ويب" />
                     </a>
+                    <div class="project-info">
+                        <h3 class="lang-ar">متجر Najmi Store</h3>
+                        <h3 class="lang-en">Najmi Store</h3>
+                        <p class="lang-ar">تطبيق ويب بصري ومتنقل يركز على تجربة المستخدم وسهولة التصفح.</p>
+                        <p class="lang-en">A modern web experience focused on clean browsing and a smooth user journey.</p>
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>HTML/CSS</span>
+                        </div>
+                    </div>
                 </li>
-                <li>
+                <li class="project-card">
                     <a href="https://student-affairs-administration.netlify.app/" target="_blank">
-                        <img src="assets/assets/imgs/app.webp" alt="تطبيق جوال" width="400" height="200"/>
+                        <img src="assets/assets/imgs/app.webp" alt="تطبيق جوال" />
                     </a>
+                    <div class="project-info">
+                        <h3 class="lang-ar">إدارة شؤون الطلاب</h3>
+                        <h3 class="lang-en">Student Affairs Administration</h3>
+                        <p class="lang-ar">حل عملي يجمع بين واجهة مستخدم مريحة وإدارة سهلة للمهام اليومية.</p>
+                        <p class="lang-en">A practical solution that combines a comfortable interface with simple daily task management.</p>
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -100,46 +153,89 @@
 
     <hr />
 
-    <!-- قسم التواصل -->
     <section class="contactContainer" id="ContactMe">
         <div class="contactTitle">
-            <h1 class="aboutName">تواصل معي</h1>
-            <h1 class="aboutTitle">معلومات التواصل</h1>
+            <h1 class="aboutTitle">
+                <span class="lang-ar">معلومات التواصل</span>
+                <span class="lang-en">Contact details</span>
+            </h1>
         </div>
         <div class="contact">
             <div class="emailAndPhone">
-                <img src="assets/assets/svg/Email.svg" alt="أيقونة البريد الإلكتروني"/>
+                <img src="assets/assets/svg/Email.svg" alt="أيقونة البريد الإلكتروني" />
                 <a href="mailto:abdo267895@gmail.com"><h3>abdo267895@gmail.com</h3></a>
             </div>
             <div class="emailAndPhone">
-                <img src="assets/assets/svg/phone.svg" alt="أيقونة الهاتف"/>
-                <a href="tel:+201022376759" ><h3>01022376759+</h3></a>
+                <img src="assets/assets/svg/phone.svg" alt="أيقونة الهاتف" />
+                <a href="tel:+201022376759"><h3>+20 102 237 6759</h3></a>
             </div>
-        </div>   
-        <!-- روابط التواصل الاجتماعي -->
+        </div>
         <div class="social-media">
-            <a href="http://www.linkedin.com/in/abdelrhman333e"target="_blank">
-                <img src="assets/assets/svg/linkedin.svg" alt="حساب لينكدإن"/>
+            <a href="https://www.linkedin.com/in/deeb0" target="_blank">
+                <img src="assets/assets/svg/linkedin.svg" alt="حساب لينكدإن" />
             </a>
             <a href="https://github.com/abdelrhman333e" target="_blank">
-                <img src="assets/assets/svg/github.svg" alt="حساب جيتهاب"/>
+                <img src="assets/assets/svg/github.svg" alt="حساب جيتهاب" />
             </a>
             <a href="https://x.com/bdalrhmn98028" target="_blank">
-                <img src="assets/assets/svg/twitter.svg" alt="حساب تويتر"/>
+                <img src="assets/assets/svg/twitter.svg" alt="حساب تويتر" />
             </a>
             <a href="https://www.youtube.com/channel/UCAd7hk5JmyeMG0W-9Co8MKg" target="_blank">
-                <img src="assets/assets/svg/youtube.svg" alt="قناة يوتيوب"/>
+                <img src="assets/assets/svg/youtube.svg" alt="قناة يوتيوب" />
             </a>
         </div>
     </section>
 
     <hr />
 
-    <!-- تذييل الصفحة -->
     <footer>
-        <p>
-            &copy; 2025 عبدالرحمن. جميع الحقوق محفوظة.
-        </p>
+        <p class="lang-ar">&copy; 2026 عبدالرحمن. جميع الحقوق محفوظة.</p>
+        <p class="lang-en">&copy; 2026 Abdelrahman. All rights reserved.</p>
     </footer>
+
+    <script>
+        const langToggle = document.getElementById('langToggle');
+        const themeToggle = document.getElementById('themeToggle');
+        const progressBar = document.querySelector('.header-progress');
+        const body = document.body;
+
+        const applyLanguage = (lang) => {
+            const isEnglish = lang === 'en';
+            body.classList.toggle('english', isEnglish);
+            document.documentElement.lang = lang;
+            langToggle.textContent = isEnglish ? 'العربية' : 'EN';
+            langToggle.setAttribute('aria-label', isEnglish ? 'التبديل إلى العربية' : 'Switch to English');
+        };
+
+        const applyTheme = (isLight) => {
+            body.classList.toggle('light-mode', isLight);
+            themeToggle.textContent = isLight ? '🌙' : '☀️';
+            themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+        };
+
+        const updateProgressBar = () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+        };
+
+        window.addEventListener('scroll', updateProgressBar);
+        window.addEventListener('resize', updateProgressBar);
+
+        langToggle.addEventListener('click', () => {
+            const nextLang = body.classList.contains('english') ? 'ar' : 'en';
+            applyLanguage(nextLang);
+        });
+
+        themeToggle.addEventListener('click', () => {
+            const isLight = !body.classList.contains('light-mode');
+            applyTheme(isLight);
+        });
+
+        applyLanguage('ar');
+        applyTheme(false);
+        updateProgressBar();
+    </script>
 </body>
 </html>

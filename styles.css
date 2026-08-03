@@ -1,188 +1,512 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
-* { 
-    margin: 0; /* إزالة الهوامش الافتراضية */
-    padding: 0; /* إزالة الحشوات الافتراضية */
-    box-sizing: border-box; /* احتساب الحشوة والحدود ضمن الحجم الكلي */
-    scroll-behavior: smooth; /* سلاسة في التمرير */
-    font-family: "poppins", serif; /* تعيين الخط الافتراضي */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "poppins", serif;
 }
-body  {
-    background-color: #222831; /* لون خلفية داكن */
+
+body {
+    background: linear-gradient(-45deg, #0f172a, #16213e, #0f172a, #1a2744);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #f8fafc;
+    transition: color 0.3s ease;
 }
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body.light-mode {
+    background: #f4f7fb;
+    animation: none;
+    color: #14213d;
+}
+
 header {
-    display: flex;
-    /* توزيع العناصر داخل الهيدر */
-    justify-content: space-between;
-    /* محاذاة العناصر عموديًا في المنتصف */
-    align-items: center;
-    /* هامش علوي وسفلي للرأس */
-    margin: 2rem auto;
-    /* حشوة يمين ويسار للرأس */
-    padding: 0 0.5rem;
-    /* أقصى عرض للرأس */
+    margin: 0 auto 2rem;
     max-width: 1200px;
+    padding: 0 0.5rem;
 }
 
-/* تنسيق قائمة التنقل الرئيسية */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(14px);
+    background: rgba(15, 23, 42, 0.82);
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+body.light-mode .sticky-header {
+    background: rgba(244, 247, 251, 0.88);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+.header-inner a {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.header-inner img {
+    width: 70px;
+    height: auto;
+    max-height: 75px;
+    object-fit: contain;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.header-inner a:hover img {
+    transform: scale(1.05);
+}
+
+.header-progress {
+    height: 3px;
+    width: 0%;
+    max-width: 100%;
+    background: linear-gradient(90deg, #00adb5, #2563eb, #00adb5);
+    background-size: 200% 200%;
+    margin-top: 0.75rem;
+    border-radius: 999px;
+    transition: width 0.15s ease-out;
+    box-shadow: 0 0 15px rgba(0, 173, 181, 0.5), 0 0 30px rgba(37, 99, 235, 0.3);
+    animation: progressGlow 2s ease infinite;
+}
+
+@keyframes progressGlow {
+    0%, 100% { box-shadow: 0 0 15px rgba(0, 173, 181, 0.5), 0 0 30px rgba(37, 99, 235, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(0, 173, 181, 0.7), 0 0 40px rgba(37, 99, 235, 0.5); }
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
 .navigation ul {
-    display: flex; /* عرض العناصر أفقياً */
-    list-style-type: none; /* إزالة النقاط */
-    gap: 2rem; /* مسافة بين العناصر */
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 1.2rem;
+    margin: 0;
+    padding: 0;
 }
 
-/* تنسيق الروابط داخل قائمة التنقل */
 .navigation a {
-    text-decoration: none; /* إزالة الخط السفلي */
-    color: #79381f; /* لون النص */
+    text-decoration: none;
+    color: #eeeeee;
+    transition: color 0.2s ease;
+    padding: 0.35rem 0.5rem;
 }
 
-/* تغيير لون الرابط عند المرور */
 .navigation a:hover {
     color: #00adb5;
 }
 
-/* جعل الخط الفاصل شفاف */
+.lang-toggle {
+    border: 1px solid #00adb5;
+    background: transparent;
+    color: #00adb5;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.light-mode .lang-toggle {
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.lang-toggle:hover {
+    background-color: rgba(0, 173, 181, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 173, 181, 0.18);
+}
+
+body.light-mode .lang-toggle:hover {
+    background-color: rgba(37, 99, 235, 0.12);
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.15);
+}
+
+.lang-toggle:active {
+    transform: scale(0.97);
+}
+
 hr {
     opacity: 10%;
 }
 
-/* تنسيق قسم البطل */
 .hero {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+    gap: 2rem;
     margin: 5rem auto;
     max-width: 1200px;
 }
 
-/* تحريك سهم النزول */
 .arrow {
     width: 50px;
-    /* جرب 50 بكسل أو الحجم اللي يريحك */
     height: auto;
     transform: translateX(-5.5rem) translateY(1.5rem);
-    /* التنسيق بتاعك زي ما هو */
 }
+
 .herosub {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
-/* تنسيق عنوان القسم الفرعي */
-.name { 
-    font-size:  3rem;
+
+.name {
+    font-size: 3rem;
     color: #eeeeee;
 }
-.title{
+
+.title {
     font-size: 4rem;
-    color:#00adb5;
+    background: linear-gradient(90deg, #00adb5, #2563eb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gradientShift 4s ease infinite;
+    background-size: 200% 200%;
 }
+
+body.light-mode .title,
+body.light-mode .aboutTitle {
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: #2563eb;
+    color: #2563eb;
+    animation: none;
+}
+
+body.light-mode .skill-badge,
+body.light-mode .project-tags span {
+    color: #2563eb;
+    background-color: rgba(37, 99, 235, 0.12);
+    border-color: rgba(37, 99, 235, 0.2);
+}
+
+.hero-subtitle {
+    max-width: 600px;
+    color: #d6d6d6;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
 .heroBtns {
     display: flex;
     gap: 1rem;
-    margin-top: 1.5rem ;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
 }
-.HireMe {/* تنسيق زر "hireme" */
+
+.HireMe,
+.cv {
+    border-radius: 24px;
+    text-decoration: none;
+    padding: 0.7rem 1.4rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.HireMe {
     background-color: #00adb5;
     color: #eeeeee;
-    border-radius: 24px;
-    text-decoration: none;
-    padding: 0.5rem 1.5rem;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 173, 181, 0.4), 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.3s ease;
 }
+
+.HireMe:hover {
+    box-shadow: 0 0 30px rgba(0, 173, 181, 0.6), 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
 .cv {
-    background-color: rgba(57, 62, 70, 0.5);
-    color:#eeeeee;
-    border-radius: 24px;
-    text-decoration: none;
-    padding: 0.5rem 1.5rem;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    background-color: rgba(57, 62, 70, 0.55);
+    color: #eeeeee;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     backdrop-filter: blur(4px);
 }
+
+.cv:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+.HireMe:active,
+.cv:active {
+    transform: scale(0.98);
+}
+
 .aboutMe {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 5rem auto;
     max-width: 1200px;
-    gap: 10rem;
+    gap: 4rem;
 }
+
 .textContainer {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
+
 .textTitle {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 0.6rem;
     font-size: 2rem;
 }
-.aboutName{ 
+
+.aboutName {
     color: #eeeeee;
 }
+
 .aboutTitle {
     color: #00adb5;
-    
+    position: relative;
+    display: inline-block;
 }
-.aboutMePar{
-      text-align: justify;
-      color: #41e2bf;
+
+.aboutTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #00adb5, #2563eb);
+    border-radius: 999px;
+    box-shadow: 0 0 15px rgba(0, 173, 181, 0.6);
+    animation: underlineExpand 0.6s ease-out forwards;
 }
-.Works{
+
+@keyframes underlineExpand {
+    from {
+        width: 0;
+        left: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.aboutMePar {
+    text-align: justify;
+    color: #eeeeee;
+    line-height: 1.8;
+    max-width: 650px;
+}
+
+body.light-mode .aboutMePar,
+body.light-mode .hero-subtitle,
+body.light-mode .project-info p,
+body.light-mode .contact h3,
+body.light-mode .contact a,
+body.light-mode footer {
+    color: #334155;
+}
+
+body.light-mode .name,
+body.light-mode .aboutName,
+body.light-mode .project-info h3 {
+    color: #0f172a;
+}
+
+body.light-mode .navigation a {
+    color: #1e293b;
+}
+
+body.light-mode .HireMe {
+    background-color: #2563eb;
+    color: #ffffff;
+    text-shadow: none;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .HireMe:hover {
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.5), 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .cv {
+    background-color: rgba(37, 99, 235, 0.12);
+    color: #0f172a;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    text-shadow: none;
+}
+
+body.light-mode .project-card {
+    background-color: rgba(37, 99, 235, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .project-card:hover {
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .social-media a {
+    background-color: rgba(37, 99, 235, 0.18);
+    border: 2px solid rgba(37, 99, 235, 0.4);
+}
+
+body.light-mode .social-media img {
+    filter: brightness(0.6);
+}
+
+body.light-mode .social-media a:hover {
+    background-color: rgba(37, 99, 235, 0.28);
+    border-color: rgba(37, 99, 235, 0.6);
+}
+
+body.light-mode .emailAndPhone img {
+    filter: brightness(0.5);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.skill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    background-color: rgba(0, 173, 181, 0.16);
+    color: #00adb5;
+    border: 1px solid rgba(0, 173, 181, 0.25);
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.skill-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 173, 181, 0.16);
+}
+
+.Works {
     background-image: url("assets/assets/svg/background.svg");
-    padding: 10rem 10rem; 
-    margin: 5rem 0rem;
+    padding: 4rem 2rem;
+    margin: 5rem 0;
 }
+
 .WorksContainer {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    margin: 5rem auto;
+    margin: 0 auto;
     max-width: 1200px;
-    
+    gap: 2rem;
 }
+
 .Projects {
     display: flex;
     align-items: center;
     justify-content: left;
-    gap: 5px;
+    gap: 0.35rem;
     font-size: 2rem;
+    flex-wrap: wrap;
 }
-.Works ul{
-    display: flex;
+
+.Works ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
     list-style-type: none;
-    align-items: center;
-    justify-content: space-between;
 }
-.Works li {
-    border-radius: 16px;
-    background-color: rgba(57, 62, 70, 0.5);
-    backdrop-filter: blur(4px);
-    padding: 1rem 4rem;
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 20px;
+    background-color: rgba(57, 62, 70, 0.65);
+    backdrop-filter: blur(6px);
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.Works li img {
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(0, 173, 181, 0.3), 0 16px 32px rgba(0, 0, 0, 0.28);
+}
+
+.project-card img {
     width: 100%;
-    /* عشان ياخد عرض الـ li */
-    max-width: 300px;
-    /* أو الحجم اللي يريحك */
-    height: auto;
-    /* يحافظ على النسبة عشان الصورة متتمطش */
     aspect-ratio: 16 / 9;
-    /* بيخلي كل الصور بنفس التناسب */
     object-fit: cover;
-    /* بيقص الزيادات عشان المربع يبقى كامل */
-    transition: transform 0.2s;
     border-radius: 16px;
+    transition: transform 0.2s ease;
 }
 
-
-.Works li:hover img {
-    transform: scale(1.5);
+.project-card:hover img {
+    transform: scale(1.03);
 }
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.project-info h3 {
+    color: #eeeeee;
+}
+
+.project-info p {
+    color: #d6d6d6;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-tags span {
+    display: inline-block;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background-color: rgba(0, 173, 181, 0.16);
+    color: #00adb5;
+    font-size: 0.85rem;
+}
+
 .contactContainer {
     display: flex;
     flex-direction: column;
@@ -190,58 +514,90 @@ hr {
     justify-content: space-around;
     margin: 2rem auto;
     max-width: 1200px;
+    gap: 1.25rem;
 }
+
 .contactTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    font-size: 2rem;
+}
+
+.contact {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    margin-bottom: 10px;
-    font-size: 2rem;
+    gap: 3rem;
+    flex-wrap: wrap;
 }
-.contact {
-       display: flex;
-       align-items: center;
-       justify-content: center;
-      gap: 20rem;
-      margin-right: 5rem;
 
-}
-.contact h3, .contact a {
+.contact h3,
+.contact a {
     color: #eeeeee;
     text-decoration: none;
 }
+
 .emailAndPhone {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 0.6rem;
 }
-.social-media { 
-display: flex; 
-align-items: center; 
-justify-content: center; 
-gap: 3rem; 
-} 
-.social-media a { 
-display: flex; 
-align-items: center; 
-justify-content: center; 
-border-radius: 50px; 
-background-color: rgba(57, 62, 70, 0.5); 
-backdrop-filter: blur(4px); 
-padding: 1rem; 
-} 
+
+.social-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-media a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    background-color: rgba(57, 62, 70, 0.5);
+    backdrop-filter: blur(4px);
+    padding: 1rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.social-media a:hover {
+    transform: translateY(-2px) scale(1.04);
+    background-color: rgba(0, 173, 181, 0.22);
+}
+
 .social-media img {
     width: 24px;
     height: 24px;
 }
+
 footer {
     color: #eeeeee;
     padding: 2rem;
     text-align: center;
-}   
-/* القيم الافتراضية (تناسب الكمبيوتر والشاشات الكبيرة) */
+}
+
+.lang-ar,
+.lang-en {
+    display: block;
+}
+
+body.english .lang-ar {
+    display: none;
+}
+
+body:not(.english) .lang-en {
+    display: none;
+}
+
+body.english .lang-en {
+    display: block;
+}
+
 header,
 .aboutMe,
 .Works,
@@ -251,24 +607,53 @@ header,
     padding-left: 2rem;
     padding-right: 2rem;
 }
+
+.sticky-header {
+    margin: 0 auto 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
 .hero,
 .aboutMe,
-.Works ul,
 .contact {
     flex-direction: row;
     align-items: center;
     gap: 3rem;
 }
-.Works li img,
+
 .aboutMeimg,
 .heroimg {
-    width: 200px;
-    height: 200px;
+    width: 380px;
+    height: 380px;
     max-width: 100%;
     border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 173, 181, 0.2);
 }
 
-/* ميديا كويري للأجهزة المتوسطة والصغيرة */
+.aboutMeimg:hover,
+.heroimg:hover {
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 0 40px rgba(0, 173, 181, 0.5), 0 20px 40px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
+}
+
+@media (min-width: 1400px) {
+    header,
+    .aboutMe,
+    .Works,
+    .contactContainer {
+        max-width: 1400px;
+    }
+
+    .heroimg,
+    .aboutMeimg {
+        width: 420px;
+        height: 420px;
+    }
+}
+
 @media (max-width: 1023px) {
     header,
     .aboutMe,
@@ -278,42 +663,25 @@ header,
         padding-left: 1rem;
         padding-right: 1rem;
     }
+
     .hero,
     .aboutMe,
-    .Works ul,
     .contact {
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
     }
-    .Works li,
-    .Works li img {
-        width: 100%;
-        max-width: 250px;
-        height: auto;
-        padding: 1rem;
+
+    .Works ul {
+        grid-template-columns: 1fr;
     }
+
     .aboutMeimg,
     .heroimg {
         width: 90vw;
         max-width: 300px;
-        height: auto;
     }
-    .contact {
-        margin-right: 0;
-        gap: 1rem;
-    }
-    .emailAndPhone {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    .social-media {
-        gap: 1rem;
-    }
-    .social-media img {
-        width: 32px;
-        height: 32px;
-    }
+
     .name,
     .title,
     .aboutName,
@@ -321,37 +689,233 @@ header,
         font-size: 1.5rem;
         text-align: center;
     }
+
     .textContainer {
         align-items: center;
         margin: 0 0.5rem;
         gap: 1rem;
     }
+
+    .hero-subtitle,
+    .aboutMePar {
+        text-align: center;
+    }
+
+    .contact {
+        gap: 1rem;
+    }
+
+    .emailAndPhone {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .social-media {
+        gap: 1rem;
+    }
+
+    .social-media img {
+        width: 32px;
+        height: 32px;
+    }
+
     footer {
         padding: 1rem;
         font-size: 1rem;
     }
 }
 
-/* ميديا كويري للموبايل الصغير جداً */
 @media (max-width: 600px) {
-    header,
+    header {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .header-actions {
+        flex-direction: row;
+        gap: 0.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .navigation ul {
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navigation a {
+        font-size: 0.9rem;
+    }
+
+    .name {
+        font-size: 1.8rem;
+    }
+
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .heroimg,
+    .aboutMeimg {
+        width: 70vw;
+        height: auto;
+        max-width: 250px;
+    }
+
+    .hero,
     .aboutMe,
-    .Works,
-    .contactContainer {
+    .contact {
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .hero-subtitle {
+        max-width: 100%;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .aboutMePar {
+        max-width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .heroBtns {
+        gap: 0.5rem;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .HireMe,
+    .cv {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .skills-list {
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    .skill-badge {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.7rem;
+    }
+
+    .aboutName,
+    .aboutTitle {
+        font-size: 1.3rem;
+    }
+
+    .project-info h3 {
+        font-size: 1rem;
+    }
+
+    .project-info p {
+        font-size: 0.9rem;
+    }
+
+    .project-tags span {
+        font-size: 0.8rem;
+    }
+
+    footer {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sticky-header {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
     }
-    .heroimg,
-    .aboutMeimg {
-        max-width: 95vw;
+
+    .header-inner {
+        gap: 0.5rem;
     }
-    .Works li img {
-        max-width: 90vw;
+
+    .header-inner img {
+        width: 35px;
     }
-    .hero,
-    .aboutMe,
-    .Works ul,
+
+    .lang-toggle {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    .name {
+        font-size: 1.5rem;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .aboutMeimg,
+    .heroimg {
+        width: 80vw;
+        max-width: 200px;
+    }
+
+    .heroimg {
+        width: 60vw;
+        max-width: 180px;
+    }
+
+    .aboutName,
+    .aboutTitle {
+        font-size: 1.1rem;
+    }
+
+    .aboutMePar {
+        font-size: 0.9rem;
+        text-align: justify;
+    }
+
+    .skill-badge {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.6rem;
+    }
+
+    .Works ul {
+        gap: 1rem;
+    }
+
+    .project-card {
+        padding: 0.75rem;
+    }
+
+    .project-info h3 {
+        font-size: 0.95rem;
+    }
+
     .contact {
         gap: 0.5rem;
+        flex-direction: column;
+    }
+
+    .emailAndPhone {
+        font-size: 0.9rem;
+    }
+
+    .social-media {
+        gap: 0.8rem;
+    }
+
+    .social-media a {
+        padding: 0.75rem;
+    }
+
+    .social-media img {
+        width: 20px;
+        height: 20px;
     }
 }
