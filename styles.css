@@ -438,6 +438,7 @@ body.light-mode .emailAndPhone img {
 }
 
 .project-card {
+    
     display: flex;
     flex-direction: column;
     gap: 1rem;
