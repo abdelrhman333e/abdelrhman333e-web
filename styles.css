@@ -11,15 +11,8 @@
 body {
     background: linear-gradient(-45deg, #0f172a, #16213e, #0f172a, #1a2744);
     background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
     color: #f8fafc;
     transition: color 0.3s ease;
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 body.light-mode {
@@ -38,10 +31,12 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(14px);
+    backdrop-filter: blur(8px);
     background: rgba(15, 23, 42, 0.82);
     padding-top: 1rem;
     padding-bottom: 0.5rem;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 body.light-mode .sticky-header {
@@ -86,13 +81,9 @@ body.light-mode .sticky-header {
     margin-top: 0.75rem;
     border-radius: 999px;
     transition: width 0.15s ease-out;
-    box-shadow: 0 0 15px rgba(0, 173, 181, 0.5), 0 0 30px rgba(37, 99, 235, 0.3);
-    animation: progressGlow 2s ease infinite;
-}
-
-@keyframes progressGlow {
-    0%, 100% { box-shadow: 0 0 15px rgba(0, 173, 181, 0.5), 0 0 30px rgba(37, 99, 235, 0.3); }
-    50% { box-shadow: 0 0 25px rgba(0, 173, 181, 0.7), 0 0 40px rgba(37, 99, 235, 0.5); }
+    box-shadow: 0 0 12px rgba(0, 173, 181, 0.4);
+    will-change: width;
+    transform: translateZ(0);
 }
 
 .header-actions {
@@ -192,7 +183,6 @@ hr {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: gradientShift 4s ease infinite;
     background-size: 200% 200%;
 }
 
@@ -307,7 +297,7 @@ body.light-mode .project-tags span {
     height: 3px;
     background: linear-gradient(90deg, #00adb5, #2563eb);
     border-radius: 999px;
-    box-shadow: 0 0 15px rgba(0, 173, 181, 0.6);
+    box-shadow: 0 0 10px rgba(0, 173, 181, 0.4);
     animation: underlineExpand 0.6s ease-out forwards;
 }
 
@@ -453,7 +443,7 @@ body.light-mode .emailAndPhone img {
     gap: 1rem;
     border-radius: 20px;
     background-color: rgba(57, 62, 70, 0.65);
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(2px);
     padding: 1rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
