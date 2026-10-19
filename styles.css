@@ -456,11 +456,18 @@ body.light-mode .emailAndPhone img {
 }
 
 .project-card img {
+    display: block;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.12);
     border-radius: 16px;
     transition: transform 0.2s ease;
+}
+
+.project-card > a {
+    display: block;
 }
 
 .project-card:hover img {
