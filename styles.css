@@ -505,6 +505,25 @@ body.light-mode .emailAndPhone img {
     font-size: 0.85rem;
 }
 
+.download-app {
+    align-self: flex-start;
+    border-radius: 24px;
+    background-color: #00adb5;
+    color: #eeeeee;
+    padding: 0.7rem 1.4rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.download-app:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 173, 181, 0.4);
+}
+
+.download-app:active {
+    transform: scale(0.98);
+}
+
 .contactContainer {
     display: flex;
     flex-direction: column;
