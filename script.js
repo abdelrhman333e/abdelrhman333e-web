@@ -6,7 +6,7 @@
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const save = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
 
-  /* ---------- language + theme ---------- */
+  /* ---------- Language & Theme ---------- */
   const langToggle = $('#langToggle');
   const themeToggle = $('#themeToggle');
 
@@ -20,7 +20,7 @@
       : (light ? 'التبديل إلى الوضع الداكن' : 'التبديل إلى الوضع الفاتح'));
     $('#toTop').setAttribute('aria-label', en ? 'Back to top' : 'العودة للأعلى');
     const meta = $('meta[name="theme-color"]');
-    if (meta) meta.content = light ? '#f3f6ff' : '#050a1c';
+    if (meta) meta.content = light ? '#eef4fc' : '#040814';
   };
 
   langToggle.addEventListener('click', () => {
@@ -39,47 +39,59 @@
     syncLabels();
   });
 
-  /* ---------- scroll progress + back to top ---------- */
+  /* ---------- Interactive Bento Spotlight Glow ---------- */
+  if (!reduced) {
+    $$('.bento-card').forEach(card => {
+      card.addEventListener('pointermove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+      });
+    });
+  }
+
+  /* ---------- Scroll Progress & Back to Top ---------- */
   const progress = $('#progress');
   const toTop = $('#toTop');
   const onScroll = () => {
     const h = root.scrollHeight - innerHeight;
-    progress.style.width = (h > 0 ? Math.min(100, scrollY / h * 100) : 0) + '%';
-    toTop.classList.toggle('show', scrollY > 600);
+    progress.style.width = (h > 0 ? Math.min(100, (scrollY / h) * 100) : 0) + '%';
+    toTop.classList.toggle('show', scrollY > 500);
   };
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', onScroll);
   toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' }));
 
-  /* ---------- active nav link ---------- */
+  /* ---------- Active Nav & Reveal on Scroll ---------- */
   const links = $$('.nav a');
   const sections = links.map(a => $(a.getAttribute('href'))).filter(Boolean);
+
   if ('IntersectionObserver' in window) {
     const navObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
         links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
       });
-    }, { rootMargin: '-45% 0px -50% 0px' });
+    }, { rootMargin: '-40% 0px -50% 0px' });
     sections.forEach(s => navObs.observe(s));
 
-    /* ---------- reveal on scroll ---------- */
     const revObs = new IntersectionObserver((entries, o) => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
         e.target.classList.add('in');
         o.unobserve(e.target);
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
+
     $$('.reveal').forEach((el, i) => {
-      el.style.transitionDelay = (i % 4) * 70 + 'ms';
+      el.style.transitionDelay = (i % 4) * 65 + 'ms';
       revObs.observe(el);
     });
   } else {
     $$('.reveal').forEach(el => el.classList.add('in'));
   }
 
-  /* ---------- rotating job titles in the hero ---------- */
+  /* ---------- Rotating Titles ---------- */
   let rolesTimer;
   function startRoles() {
     clearInterval(rolesTimer);
@@ -95,11 +107,11 @@
         i = (i + 1) % roles.length;
         span.textContent = roles[i];
         span.classList.remove('out');
-      }, 350);
+      }, 320);
     }, 2800);
   }
 
-  /* ---------- copy email ---------- */
+  /* ---------- Copy Email ---------- */
   const copyBtn = $('#copyMail');
   if (copyBtn) {
     copyBtn.addEventListener('click', async () => {
@@ -108,9 +120,9 @@
       const old = label.textContent;
       try {
         await navigator.clipboard.writeText(copyBtn.dataset.copy);
-        label.textContent = en ? 'Copied' : 'تم النسخ';
+        label.textContent = en ? 'Copied!' : 'تم النسخ!';
       } catch (e) {
-        label.textContent = en ? 'Copy failed' : 'تعذّر النسخ';
+        label.textContent = en ? 'Failed' : 'تعذّر النسخ';
       }
       setTimeout(() => { label.textContent = old; }, 1800);
     });
